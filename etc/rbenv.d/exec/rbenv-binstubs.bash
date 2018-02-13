@@ -33,10 +33,9 @@ add_to_bundles ()
       echo "$root" >> $new_bundles
     fi
   fi
-  mv -f $new_bundles ${RBENV_ROOT}/bundles
+  cat $new_bundles > ${RBENV_ROOT}/bundles && rm -f $new_bundles
 }
 
 if [ -z "$DISABLE_BINSTUBS" -a "X$1" = "Xbundle" ]; then
   add_to_bundles
 fi
-
