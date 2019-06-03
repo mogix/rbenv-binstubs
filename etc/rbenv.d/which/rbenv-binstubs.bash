@@ -79,7 +79,7 @@ check_for_binstubs()
           esac
         done < "$root/.bundle/config"
       fi
-      if ! [ -x "$potential_path" ]; then
+      if ! [ -x "$RBENV_COMMAND_PATH" ] && ! [ -x "$potential_path" ]; then
         potential_path="$( find_in_rest_of_path )"
       fi
       if [ -x "$potential_path" ]; then
